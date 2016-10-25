@@ -7,6 +7,7 @@
 import fs from 'fs'
 import _ from 'lodash'
 
+import Promise from './vendor/promise'
 import Constants from './constants'
 import Image from './lib/image'
 import Color from './lib/color'
