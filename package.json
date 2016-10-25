@@ -8,7 +8,8 @@
     "type": "git"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --require test/support test"
+    "test": "node_modules/.bin/mocha --require test/support test",
+    "build": "node_modules/.bin/webpack"
   },
   "author": "PhotoEditorSDK.com <contact@photoeditorsdk.com>",
   "license": "MIT",
@@ -21,6 +22,9 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "mocha": "^3.1.2",
-    "should": "^11.1.1"
+    "preprocess-loader": "^0.2.0",
+    "should": "^11.1.1",
+    "standard-loader": "^5.0.0",
+    "webpack": "^1.13.2"
   }
 }
