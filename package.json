@@ -2,7 +2,7 @@
   "name": "rembrandt",
   "version": "0.0.1",
   "description": "Client- and server-side image comparison library",
-  "main": "index.js",
+  "main": "build/node/index.js",
   "repository": {
     "url": "git://github.com/imgly/rembrandt.git",
     "type": "git"

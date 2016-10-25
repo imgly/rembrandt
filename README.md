@@ -16,11 +16,31 @@ Go check it out. It's really awesome. :)
 
 ### Installation
 
-For server-side usage, you will need to follow the installation
-instructions over at [node-canvas](https://github.com/Automattic/node-canvas#installation).
-Afterwards, just run:
+#### Node.JS
+
+Please follow the installation instructions over at [node-canvas](https://github.com/Automattic/node-canvas#installation)
+in order to correctly install all required system libraries. Afterwards, just run:
 
 `npm install rembrandt`
+
+#### Browser
+
+Download the latest build from our [Releases page](https://github.com/imgly/rembrandt/releases), then
+include it like this:
+
+```html
+<script src="/path/to/rembrandt.min.js"></script>
+```
+
+The `Rembrandt` JavaScript variable is now globally available.
+
+#### Using module bundlers like Webpack etc.
+
+Install Rembrandt via `npm install rembrandt`, then require it inside your JavaScript like so:
+
+```js
+var Rembrandt = require('rembrandt/build/browser')
+```
 
 ### Usage
 
