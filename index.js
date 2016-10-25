@@ -5,8 +5,8 @@
  */
 
 import fs from 'fs'
-import _ from 'lodash'
 
+import Utils from './lib/utils'
 import Promise from './vendor/promise'
 import Constants from './constants'
 import Image from './lib/image'
@@ -18,7 +18,7 @@ class Rembrandt {
     this._imageA = null
     this._imageB = null
 
-    this._options = _.defaults(options, {
+    this._options = Utils.defaults(options, {
       imageA: null,
       imageB: null,
       thresholdType: Rembrandt.THRESHOLD_PERCENT,
