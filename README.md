@@ -61,7 +61,10 @@ const rembrandt = new Rembrandt({
   maxThreshold: 0.01,
 
   // Maximum color delta (0...255):
-  maxDelta: 20
+  maxDelta: 20,
+
+  renderComposition: true, // Should Rembrandt render a composition image?
+  compositionMaskColor: Rembrandt.Color.RED // Color of unmatched pixels
 })
 
 // Run the comparison
@@ -69,6 +72,7 @@ rembrandt.compare()
   .then(function (result) {
     console.log('Passed:', result.passed)
     console.log('Difference:', (result.difference * 100).toFixed(2), '%')
+    console.log('Composition image buffer:', result.compositionImage)
   })
   .catch((e) => {
     console.error(e)
