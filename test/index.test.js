@@ -27,7 +27,7 @@ describe('Rembrandt', () => {
         rembrandt.compare()
           .then((result) => {
             result.passed.should.be.true
-            result.difference.should.equal(0)
+            result.threshold.should.equal(0)
             done()
           })
           .catch((e) => done(e))
@@ -61,11 +61,11 @@ describe('Rembrandt', () => {
           })
         })
 
-        it('should be fulfilled with passed = false and differences = 3', (done) => {
+        it('should be fulfilled with passed = false and thresholds = 3', (done) => {
           rembrandt.compare()
             .then((result) => {
               result.passed.should.be.false
-              result.difference.should.equal(3)
+              result.threshold.should.equal(3)
               done()
             })
             .catch((e) => done(e))
@@ -87,7 +87,7 @@ describe('Rembrandt', () => {
           rembrandt.compare()
             .then((result) => {
               result.passed.should.be.false
-              result.difference.should.equal(3)
+              result.threshold.should.equal(3)
               result.should.have.property('compositionImage')
 
               done()
@@ -130,7 +130,7 @@ describe('Rembrandt', () => {
         rembrandt.compare()
           .then((result) => {
             result.passed.should.be.false
-            result.difference.should.equal(5)
+            result.threshold.should.equal(5)
             done()
           })
           .catch((e) => done(e))
