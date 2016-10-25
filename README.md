@@ -72,8 +72,10 @@ const rembrandt = new Rembrandt({
 rembrandt.compare()
   .then(function (result) {
     console.log('Passed:', result.passed)
-    console.log('Difference:', (result.difference * 100).toFixed(2), '%')
+    console.log('Difference:', (result.threshold * 100).toFixed(2), '%')
     console.log('Composition image buffer:', result.compositionImage)
+
+    // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
   })
   .catch((e) => {
     console.error(e)
