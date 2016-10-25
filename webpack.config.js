@@ -1,4 +1,5 @@
 var path = require('path')
+var DefinePlugin = require('webpack/lib/DefinePlugin')
 
 module.exports = [{
   entry: './index.js',
@@ -12,6 +13,7 @@ module.exports = [{
     fs: 'empty',
     path: 'empty'
   },
+  externals: ['canvas'],
   module: {
     preLoaders: [
       {
@@ -24,13 +26,19 @@ module.exports = [{
     loaders: [
       {
         test: __dirname,
-        loaders: [
-          'babel-loader?cacheDirectory',
-          'preprocess'
-        ]
+        loader: 'babel-loader!preprocess?+BROWSER'
+      },
+      {
+        test: /\.json?$/,
+        loader: 'json-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new DefinePlugin({
+      BROWSER: true
+    })
+  ]
 }, {
   entry: './index.js',
   output: {
@@ -53,10 +61,11 @@ module.exports = [{
     loaders: [
       {
         test: __dirname,
-        loaders: [
-          'babel-loader?cacheDirectory',
-          'preprocess?+NODE'
-        ]
+        loader: 'babel-loader!preprocess'
+      },
+      {
+        test: /\.json?$/,
+        loader: 'json-loader'
       }
     ]
   }

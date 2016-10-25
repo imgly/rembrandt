@@ -126,16 +126,30 @@ class Rembrandt {
         return resolve(Image.fromBuffer(image))
       }
 
+      // @ifndef BROWSER
       fs.readFile(image, (err, buf) => {
         if (err) return reject(err)
         resolve(Image.fromBuffer(image))
       })
+      // @endif
+      // @ifdef BROWSER
+      if (typeof BROWSER !== 'undefined') {
+        const browserImage = Utils.createImage()
+        browserImage.addEventListener('load', () => {
+          resolve(Image.fromImage(browserImage))
+        })
+        browserImage.crossOrigin = 'Anonymous'
+        browserImage.src = image
+      }
+      // @endif
     })
   }
 }
 
 Rembrandt.Image = Image
 Rembrandt.Color = Color
+
+Rembrandt.version = require('./package.json').version
 
 // Copy constants to Rembrandt object
 for (let key in Constants) {

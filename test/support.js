@@ -8,4 +8,4 @@ global.chaiAsPromised = chaiAsPromised
 global.expect = chai.expect
 global.assert = chai.assert
 
-global.Rembrandt = require('../')
+global.Rembrandt = require('../index')

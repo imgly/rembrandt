@@ -50,7 +50,8 @@ Here is an example (ES6 / ES2015):
 import Rembrandt from 'rembrandt'
 
 const rembrandt = new Rembrandt({
-  // `imageA` and `imageB` can be either Strings or Buffers
+  // `imageA` and `imageB` can be either Strings (file path on node.js,
+  // public url on Browsers) or Buffers
   imageA: '/path/to/imageA',
   imageB: fs.readFileSync('/path/to/imageB'),
 

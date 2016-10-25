@@ -1,5 +1,4 @@
 /* global Rembrandt, describe, it, beforeEach */
-
 const { Color } = Rembrandt
 
 describe('Rembrandt', () => {
