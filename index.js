@@ -13,6 +13,12 @@ import Image from './lib/image'
 import Color from './lib/color'
 import ImageComparator from './lib/image-comparator'
 
+// @ifdef BROWSER
+if (typeof BROWSER !== 'undefined') {
+  global.Buffer = () => {}
+}
+// @endif
+
 class Rembrandt {
   constructor (options) {
     this._imageA = null

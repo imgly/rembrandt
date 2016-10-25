@@ -11,7 +11,14 @@ module.exports = [{
   },
   node: {
     fs: 'empty',
-    path: 'empty'
+    path: 'empty',
+    console: false,
+    global: true,
+    process: false,
+    Buffer: false,
+    __filename: 'mock',
+    __dirname: 'mock',
+    setImmediate: false
   },
   externals: ['canvas'],
   module: {
@@ -42,8 +49,7 @@ module.exports = [{
 }, {
   entry: './index.js',
   output: {
-    library: 'Rembrandt',
-    libraryTarget: 'commonjs',
+    libraryTarget: 'commonjs2',
     path: path.join(__dirname, 'build'),
     filename: 'node/index.js'
   },
