@@ -22,7 +22,9 @@ class Rembrandt {
       imageB: null,
       thresholdType: Rembrandt.THRESHOLD_PERCENT,
       maxThreshold: 0.01,
-      maxDelta: 20
+      maxDelta: 20,
+      renderComposition: false,
+      compositionMaskColor: Color.RED
     })
 
     this._validateOptions()
@@ -37,10 +39,7 @@ class Rembrandt {
   compare () {
     return this._loadImages()
       .then(() => {
-        const { maxDelta, thresholdType, maxThreshold } = this._options
-        const comparator = new ImageComparator(this._imageA, this._imageB, {
-          maxDelta, thresholdType, maxThreshold
-        })
+        const comparator = new ImageComparator(this._imageA, this._imageB, this._options)
         return comparator.compare()
       })
   }

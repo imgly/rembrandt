@@ -50,23 +50,51 @@ describe('Rembrandt', () => {
         imageB.setColorAt(1, 0, Color.BLACK)
         imageB.setColorAt(0, 1, Color.BLACK)
         imageB.setColorAt(1, 1, Color.RED)
+      })
 
-        rembrandt = new Rembrandt({
-          imageA: imageA,
-          imageB: imageB,
-          thresholdType: Rembrandt.THRESHOLD_PIXELS,
-          maxThreshold: 0
+      describe('without composition image', () => {
+        beforeEach(() => {
+          rembrandt = new Rembrandt({
+            imageA: imageA,
+            imageB: imageB,
+            thresholdType: Rembrandt.THRESHOLD_PIXELS,
+            maxThreshold: 0
+          })
+        })
+
+        it('should be fulfilled with passed = false and differences = 3', (done) => {
+          rembrandt.compare()
+            .then((result) => {
+              result.passed.should.be.false
+              result.difference.should.equal(3)
+              done()
+            })
+            .catch((e) => done(e))
         })
       })
 
-      it('should be fulfilled with passed = false and differences = 3', (done) => {
-        rembrandt.compare()
-          .then((result) => {
-            result.passed.should.be.false
-            result.difference.should.equal(3)
-            done()
+      describe('with composition image', () => {
+        beforeEach(() => {
+          rembrandt = new Rembrandt({
+            imageA: imageA,
+            imageB: imageB,
+            thresholdType: Rembrandt.THRESHOLD_PIXELS,
+            maxThreshold: 0,
+            renderComposition: true
           })
-          .catch((e) => done(e))
+        })
+
+        it('should be fulfilled with `compositionImage`', (done) => {
+          rembrandt.compare()
+            .then((result) => {
+              result.passed.should.be.false
+              result.difference.should.equal(3)
+              result.should.have.property('compositionImage')
+
+              done()
+            })
+            .catch((e) => done(e))
+        })
       })
     })
 
