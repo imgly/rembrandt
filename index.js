@@ -1,7 +1,8 @@
-/**
+/*!
  * This file is part of Rembrandt.js
  * Copyright (c) 2016 PhotoEditorSDK.com
  * Licensed under MIT license (https://opensource.org/licenses/MIT)
+ * @license
  */
 
 import fs from 'fs'
