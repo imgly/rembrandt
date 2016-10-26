@@ -31,7 +31,8 @@ class Rembrandt {
       maxThreshold: 0.01,
       maxDelta: 20,
       renderComposition: false,
-      compositionMaskColor: Color.RED
+      compositionMaskColor: Color.RED,
+      maxOffset: 0
     })
 
     this._validateOptions()
