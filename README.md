@@ -1,10 +1,17 @@
 <p align="center">
   <a href="https://pesdk-slack.herokuapp.com/">
+    <img src="https://img.shields.io/travis/imgly/rembrandt.svg" alt="TravisCI Status" />
+  </a>
+  <a href="https://travis-ci.org/imgly/rembrandt">
     <img src="https://pesdk-slack.herokuapp.com/badge.svg" alt="Slack Status" />
   </a>
 </p>
 
 ## Rembrandt.JS - Client- and server-side image comparison library
+
+<p align="center">
+  <img src="http://s3.amazonaws.com/pesdk/rembrandt.png" alt="Rembrandt" />
+</p>
 
 Rembrandt.JS is a image comparison library that works both with the
 HTML5 Canvas2D API as well as the drop-in Node.JS replacement
