@@ -71,6 +71,9 @@ const rembrandt = new Rembrandt({
   // Maximum color delta (0...255):
   maxDelta: 20,
 
+  // Maximum surrounding pixel offset
+  maxOffset: 0,
+
   renderComposition: true, // Should Rembrandt render a composition image?
   compositionMaskColor: Rembrandt.Color.RED // Color of unmatched pixels
 })
