@@ -8,7 +8,7 @@ module.exports = [{
     library: 'Rembrandt',
     libraryTarget: 'umd',
     path: path.join(__dirname, 'build'),
-    filename: 'browser/index.js'
+    filename: 'browser.js'
   },
   node: {
     fs: 'empty',
@@ -53,7 +53,7 @@ module.exports = [{
     library: 'Rembrandt',
     libraryTarget: 'umd',
     path: path.join(__dirname, 'build'),
-    filename: 'browser/index.min.js'
+    filename: 'browser.min.js'
   },
   node: {
     fs: 'empty',
@@ -100,7 +100,7 @@ module.exports = [{
   output: {
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, 'build'),
-    filename: 'node/index.js'
+    filename: 'node.js'
   },
   target: 'node',
   externals: ['canvas'],
