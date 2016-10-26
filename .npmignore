@@ -2,7 +2,7 @@ lib
 test
 vendor
 constants.js
-./index.js
+index.js
 webpack.config.js
 yarn.lock
 .babelrc
