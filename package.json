@@ -1,6 +1,6 @@
 {
   "name": "rembrandt",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Client- and server-side image comparison library",
   "main": "build/node/index.js",
   "repository": {
