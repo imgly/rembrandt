@@ -28,6 +28,8 @@ $(function(){
 				fileReader.onload = function (event) {
 					droppedImage.src = event.target.result;
 					$target.html(droppedImage);
+          $target.addClass('drop-active');
+          $target.css('height', droppedImage.height + 20); // thickness of border
           onDrop(event.target.result);
 				};
 
@@ -69,9 +71,7 @@ $(function(){
     // Run the comparison
     rembrandt.compare()
       .then(function (result) {
-        console.log('Passed:', result.passed);
-        console.log('Difference:', (result.threshold * 100).toFixed(2), '%');
-        onComplete(result.compositionImage);
+        onComplete(result);
 
         // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
       })
@@ -110,18 +110,7 @@ $(function(){
     // Run the comparison
     rembrandt.compare()
       .then(function (result) {
-        $('.passed-result').text(result.passed);
-        if(result.passed) {
-          $('.passed-result').addClass('right');
-        } else {
-          $('.passed-result').addClass('wrong');
-        }
-        var percentage = (result.threshold * 100).toFixed(2) + '%'
-        $('.percentage-result').text(percentage);
-
-        $('.results').show();
-        onComplete(result.compositionImage);
-
+        onComplete(result);
         window.result = result;
         // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
       })
@@ -131,8 +120,20 @@ $(function(){
     }
   });
 
-  function onComplete(image) {
-    console.log("the image", image);
-    $('.comparison-image').html(image);
+  function onComplete(result) {
+
+    $('.passed-result').text(result.passed);
+    if(result.passed) {
+      $('.passed-result').removeClass('wrong');
+      $('.passed-result').addClass('right');
+    } else {
+      $('.passed-result').removeClass('right');
+      $('.passed-result').addClass('wrong');
+    }
+    var percentage = (result.threshold * 100).toFixed(2) + '%'
+    $('.percentage-result').text(percentage);
+
+    $('.results').show();
+    $('.comparison-image').html(result.compositionImage);
   }
 });
