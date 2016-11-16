@@ -260,6 +260,10 @@ a {
   font-size: 1.8rem;
 }
 
+.drop-active {
+  border: 10px dashed #155799 !important;
+}
+
 .drag-over {
   border: 5px dashed #159957;
 }
