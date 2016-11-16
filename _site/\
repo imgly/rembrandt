@@ -246,11 +246,12 @@ a {
 
 .drop-zone-container {
   height: 100%;
+  overflow: auto;
   text-align: center;
 }
 
 .drop-zone {
-  margin: 10px 20px;
+  margin: 0 20px;
   display: inline-block;
   border: 10px dashed #ccc;
   color: #ccc;
@@ -262,20 +263,4 @@ a {
 
 .drag-over {
   border: 5px dashed #159957;
-}
-.comparison-image {
-  margin-top: 20px;
-}
-.results {
-  display: none;
-}
-.results-table {
-  width: 21rem !important;
-  margin: 0 auto;
-}
-.wrong {
-  color: #bd2c00;
-}
-.right {
-  color: #159957;
 }
