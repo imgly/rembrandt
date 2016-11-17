@@ -283,3 +283,34 @@ a {
 .right {
   color: #159957;
 }
+
+.param-input {
+  width: 10rem;
+}
+
+.param-label {
+  width: 10rem;
+  display: inline-block;
+  font-weight: bold;
+  text-align: left;
+  font-size: 13px;
+}
+
+.max-pixel-label {
+  font-size: 12px;
+}
+
+.input {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 12rem;
+}
+
+.label-btn {
+  background-color: #159957;
+  background-image: linear-gradient(120deg, #155799, #159957);
+}
+
+.threshold-select {
+  font-size: 13px;
+}

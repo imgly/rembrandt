@@ -39,125 +39,146 @@
             </thead>
             <tbody>
               <tr>
-                <td class='passed-result'> True  </td>
-                <td class='percentage-result'> 22% </td>
+                <td class='passed-result'>  </td>
+                <td class='percentage-result'> </td>
               </tr>
             </tbody>
           </table>
+          <div class="comparison-image">
+          </div>
+          <h3> Parameters </h3>
+          <div class="input">
+            <label for='threshold-type' class='param-label'> Threshold Type </label>
+            <select name= 'threshold-type' class='threshold-select'>
+              <option value="percentage">Percentage Difference</option>
+              <option value="pixel">Pixel Difference</option>
+            </select>
+          </div>
+          <div class="input">
+            <label for='max-threshold' class='param-label'> Max. Threshold </label>
+            <input type='number' class= "param-input" name= "max-threshold" />
+          </div>
+          <div class="input">
+            <label for='max-delta' class='param-label'> Max. Color Delta (0...255) </label>
+            <input type='number' min='0' max='255' class= "param-input" name= "max-delta"/>
+          </div>
+          <div class="input">
+            <label for='max-offset' class='param-label max-pixel-label'> Max. Surrounding Pixel Offset </label>
+            <input type='number' class= "param-input" name= "max-offset"/>
+          </div>
+          <a href="#" class="btn label-btn">Apply New Params</a>
         </div>
-        <div class="comparison-image">
-        </div>
+
       </div>
+            <p align="center">
+        <a href="https://pesdk-slack.herokuapp.com/">
+          <img src="https://img.shields.io/travis/imgly/rembrandt.svg" alt="TravisCI Status">
+        </a>
+        <a href="https://travis-ci.org/imgly/rembrandt">
+          <img src="https://pesdk-slack.herokuapp.com/badge.svg" alt="Slack Status">
+        </a>
+      </p>
+
+      <h2>
+      <a id="rembrandtjs---client--and-server-side-image-comparison-library" class="anchor" href="#rembrandtjs---client--and-server-side-image-comparison-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rembrandt.JS - Client- and server-side image comparison library</h2>
 
       <p align="center">
-  <a href="https://pesdk-slack.herokuapp.com/">
-    <img src="https://img.shields.io/travis/imgly/rembrandt.svg" alt="TravisCI Status">
-  </a>
-  <a href="https://travis-ci.org/imgly/rembrandt">
-    <img src="https://pesdk-slack.herokuapp.com/badge.svg" alt="Slack Status">
-  </a>
-</p>
+        <img src="http://s3.amazonaws.com/pesdk/rembrandt.png" alt="Rembrandt">
+      </p>
 
-<h2>
-<a id="rembrandtjs---client--and-server-side-image-comparison-library" class="anchor" href="#rembrandtjs---client--and-server-side-image-comparison-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rembrandt.JS - Client- and server-side image comparison library</h2>
+      <p>Rembrandt.JS is a image comparison library that works both with the
+      HTML5 Canvas2D API as well as the drop-in Node.JS replacement
+      <code>node-canvas</code>.</p>
 
-<p align="center">
-  <img src="http://s3.amazonaws.com/pesdk/rembrandt.png" alt="Rembrandt">
-</p>
+      <p>We created Rembrandt.JS to have an easy-to-use image comparison
+      library for our internal tests for <a href="https://www.photoeditorsdk.com">PhotoEditorSDK</a>.
+      Go check it out. It's really awesome. :)</p>
 
-<p>Rembrandt.JS is a image comparison library that works both with the
-HTML5 Canvas2D API as well as the drop-in Node.JS replacement
-<code>node-canvas</code>.</p>
+      <h3>
+      <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>We created Rembrandt.JS to have an easy-to-use image comparison
-library for our internal tests for <a href="https://www.photoeditorsdk.com">PhotoEditorSDK</a>.
-Go check it out. It's really awesome. :)</p>
+      <h4>
+      <a id="nodejs" class="anchor" href="#nodejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node.JS</h4>
 
-<h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+      <p>Please follow the installation instructions over at <a href="https://github.com/Automattic/node-canvas#installation">node-canvas</a>
+      in order to correctly install all required system libraries. Afterwards, just run:</p>
 
-<h4>
-<a id="nodejs" class="anchor" href="#nodejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node.JS</h4>
+      <p><code>npm install rembrandt</code></p>
 
-<p>Please follow the installation instructions over at <a href="https://github.com/Automattic/node-canvas#installation">node-canvas</a>
-in order to correctly install all required system libraries. Afterwards, just run:</p>
+      <h4>
+      <a id="browser" class="anchor" href="#browser" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser</h4>
 
-<p><code>npm install rembrandt</code></p>
+      <p>Download the latest build from our <a href="https://github.com/imgly/rembrandt/releases">Releases page</a>, then
+      include it like this:</p>
 
-<h4>
-<a id="browser" class="anchor" href="#browser" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser</h4>
+      <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/rembrandt.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
 
-<p>Download the latest build from our <a href="https://github.com/imgly/rembrandt/releases">Releases page</a>, then
-include it like this:</p>
+      <p>The <code>Rembrandt</code> JavaScript variable is now globally available.</p>
 
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/path/to/rembrandt.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+      <h4>
+      <a id="using-module-bundlers-like-webpack-etc" class="anchor" href="#using-module-bundlers-like-webpack-etc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using module bundlers like Webpack etc.</h4>
 
-<p>The <code>Rembrandt</code> JavaScript variable is now globally available.</p>
+      <p>Install Rembrandt via <code>npm install rembrandt</code>, then require it inside your JavaScript like so:</p>
 
-<h4>
-<a id="using-module-bundlers-like-webpack-etc" class="anchor" href="#using-module-bundlers-like-webpack-etc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using module bundlers like Webpack etc.</h4>
+      <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> Rembrandt <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>rembrandt/build/browser<span class="pl-pds">'</span></span>)</pre></div>
 
-<p>Install Rembrandt via <code>npm install rembrandt</code>, then require it inside your JavaScript like so:</p>
+      <h3>
+      <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
 
-<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> Rembrandt <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>rembrandt/build/browser<span class="pl-pds">'</span></span>)</pre></div>
+      <p>Here is an example (ES6 / ES2015):</p>
 
-<h3>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+      <div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">Rembrandt</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>rembrandt<span class="pl-pds">'</span></span>
 
-<p>Here is an example (ES6 / ES2015):</p>
+      <span class="pl-k">const</span> <span class="pl-c1">rembrandt</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Rembrandt</span>({
+        <span class="pl-c">// `imageA` and `imageB` can be either Strings (file path on node.js,</span>
+        <span class="pl-c">// public url on Browsers) or Buffers</span>
+        imageA<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/path/to/imageA<span class="pl-pds">'</span></span>,
+        imageB<span class="pl-k">:</span> <span class="pl-smi">fs</span>.<span class="pl-en">readFileSync</span>(<span class="pl-s"><span class="pl-pds">'</span>/path/to/imageB<span class="pl-pds">'</span></span>),
 
-<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">Rembrandt</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>rembrandt<span class="pl-pds">'</span></span>
+        <span class="pl-c">// Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS</span>
+        thresholdType<span class="pl-k">:</span> <span class="pl-smi">Rembrandt</span>.<span class="pl-c1">THRESHOLD_PERCENT</span>,
 
-<span class="pl-k">const</span> <span class="pl-c1">rembrandt</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Rembrandt</span>({
-  <span class="pl-c">// `imageA` and `imageB` can be either Strings (file path on node.js,</span>
-  <span class="pl-c">// public url on Browsers) or Buffers</span>
-  imageA<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/path/to/imageA<span class="pl-pds">'</span></span>,
-  imageB<span class="pl-k">:</span> <span class="pl-smi">fs</span>.<span class="pl-en">readFileSync</span>(<span class="pl-s"><span class="pl-pds">'</span>/path/to/imageB<span class="pl-pds">'</span></span>),
+        <span class="pl-c">// The maximum threshold (0...1 for THRESHOLD_PERCENT, pixel count for THRESHOLD_PIXELS</span>
+        maxThreshold<span class="pl-k">:</span> <span class="pl-c1">0.01</span>,
 
-  <span class="pl-c">// Needs to be one of Rembrandt.THRESHOLD_PERCENT or Rembrandt.THRESHOLD_PIXELS</span>
-  thresholdType<span class="pl-k">:</span> <span class="pl-smi">Rembrandt</span>.<span class="pl-c1">THRESHOLD_PERCENT</span>,
+        <span class="pl-c">// Maximum color delta (0...255):</span>
+        maxDelta<span class="pl-k">:</span> <span class="pl-c1">20</span>,
 
-  <span class="pl-c">// The maximum threshold (0...1 for THRESHOLD_PERCENT, pixel count for THRESHOLD_PIXELS</span>
-  maxThreshold<span class="pl-k">:</span> <span class="pl-c1">0.01</span>,
+        <span class="pl-c">// Maximum surrounding pixel offset</span>
+        maxOffset<span class="pl-k">:</span> <span class="pl-c1">0</span>,
 
-  <span class="pl-c">// Maximum color delta (0...255):</span>
-  maxDelta<span class="pl-k">:</span> <span class="pl-c1">20</span>,
+        renderComposition<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-c">// Should Rembrandt render a composition image?</span>
+        compositionMaskColor<span class="pl-k">:</span> <span class="pl-smi">Rembrandt</span>.<span class="pl-smi">Color</span>.<span class="pl-c1">RED</span> <span class="pl-c">// Color of unmatched pixels</span>
+      })
 
-  <span class="pl-c">// Maximum surrounding pixel offset</span>
-  maxOffset<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+      <span class="pl-c">// Run the comparison</span>
+      <span class="pl-smi">rembrandt</span>.<span class="pl-en">compare</span>()
+        .<span class="pl-en">then</span>(<span class="pl-k">function</span> (<span class="pl-smi">result</span>) {
+          <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Passed:<span class="pl-pds">'</span></span>, <span class="pl-smi">result</span>.<span class="pl-smi">passed</span>)
+          <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Difference:<span class="pl-pds">'</span></span>, (<span class="pl-smi">result</span>.<span class="pl-smi">threshold</span> <span class="pl-k">*</span> <span class="pl-c1">100</span>).<span class="pl-en">toFixed</span>(<span class="pl-c1">2</span>), <span class="pl-s"><span class="pl-pds">'</span>%<span class="pl-pds">'</span></span>)
+          <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Composition image buffer:<span class="pl-pds">'</span></span>, <span class="pl-smi">result</span>.<span class="pl-smi">compositionImage</span>)
 
-  renderComposition<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-c">// Should Rembrandt render a composition image?</span>
-  compositionMaskColor<span class="pl-k">:</span> <span class="pl-smi">Rembrandt</span>.<span class="pl-smi">Color</span>.<span class="pl-c1">RED</span> <span class="pl-c">// Color of unmatched pixels</span>
-})
+          <span class="pl-c">// Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment</span>
+        })
+        .<span class="pl-en">catch</span>((<span class="pl-smi">e</span>) <span class="pl-k">=&gt;</span> {
+          <span class="pl-en">console</span>.<span class="pl-c1">error</span>(e)
+        })</pre></div>
 
-<span class="pl-c">// Run the comparison</span>
-<span class="pl-smi">rembrandt</span>.<span class="pl-en">compare</span>()
-  .<span class="pl-en">then</span>(<span class="pl-k">function</span> (<span class="pl-smi">result</span>) {
-    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Passed:<span class="pl-pds">'</span></span>, <span class="pl-smi">result</span>.<span class="pl-smi">passed</span>)
-    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Difference:<span class="pl-pds">'</span></span>, (<span class="pl-smi">result</span>.<span class="pl-smi">threshold</span> <span class="pl-k">*</span> <span class="pl-c1">100</span>).<span class="pl-en">toFixed</span>(<span class="pl-c1">2</span>), <span class="pl-s"><span class="pl-pds">'</span>%<span class="pl-pds">'</span></span>)
-    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Composition image buffer:<span class="pl-pds">'</span></span>, <span class="pl-smi">result</span>.<span class="pl-smi">compositionImage</span>)
+      <h3>
+      <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
 
-    <span class="pl-c">// Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment</span>
-  })
-  .<span class="pl-en">catch</span>((<span class="pl-smi">e</span>) <span class="pl-k">=&gt;</span> {
-    <span class="pl-en">console</span>.<span class="pl-c1">error</span>(e)
-  })</pre></div>
+      <p>See <a href="LICENSE.md">LICENSE.md</a></p>
 
-<h3>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+      <h3>
+      <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>See <a href="LICENSE.md">LICENSE.md</a></p>
+      <p>Copyright (c) 2016 by <a href="https://www.photoeditorsdk.com">PhotoEditorSDK.com</a></p>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+            <footer class="site-footer">
+              <span class="site-footer-owner"><a href="https://github.com/imgly/rembrandt">Rembrandt</a> is maintained by <a href="https://github.com/imgly">imgly</a>.</span>
 
-<p>Copyright (c) 2016 by <a href="https://www.photoeditorsdk.com">PhotoEditorSDK.com</a></p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/imgly/rembrandt">Rembrandt</a> is maintained by <a href="https://github.com/imgly">imgly</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+              <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+            </footer>
 
     </section>
 
