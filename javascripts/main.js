@@ -1,4 +1,12 @@
 $(function(){
+  var defaultSettings = {
+    'threshold-type': 'percentage',
+    'max-threshold': 0.01,
+    'max-delta': 20,
+    'max-offset': 0,
+  }
+  var rembrandt;
+
 	function dropZone($target, onDrop){
 		$target.
 			bind('dragover', function(){
@@ -46,7 +54,7 @@ $(function(){
 
     file1 = file
     if(file2) {
-      var rembrandt = new Rembrandt({
+      rembrandt = new Rembrandt({
       // `imageA` and `imageB` can be either Strings (file path on node.js,
       // public url on Browsers) or Buffers
       imageA: file1,
@@ -84,7 +92,7 @@ $(function(){
   dropZone(dropZoneTwo, function(file){
     file2 = file
     if(file1) {
-      var rembrandt = new Rembrandt({
+      rembrandt = new Rembrandt({
       // `imageA` and `imageB` can be either Strings (file path on node.js,
       // public url on Browsers) or Buffers
       imageA: file1,
@@ -111,7 +119,6 @@ $(function(){
     rembrandt.compare()
       .then(function (result) {
         onComplete(result);
-        window.result = result;
         // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
       })
       .catch((e) => {
@@ -120,8 +127,43 @@ $(function(){
     }
   });
 
+  $('.change-params').on('click', function(ev){
+    ev.preventDefault();
+    onInputChange();
+  });
+
+  function onInputChange(){
+    var options = {
+      'threshold-type': $('[name="threshold-type"]').val(),
+      'max-threshold': $('[name="max-threshold"]').val(),
+      'max-delta': $('[name="max-delta"]').val(),
+      'max-offset': $('[name="max-offset"]').val(),
+    };
+    updateRembrandt(options);
+  }
+
+  function updateRembrandt(options){
+
+    var thresholdType = (options['threshold-type'] == 'percentage')? Rembrandt.THRESHOLD_PERCENT : Rembrandt.THRESHOLD_PIXELS;
+    rembrandt._options['thresholdType'] =  thresholdType;
+    rembrandt._options['maxThreshold'] = Number(options['max-threshold']);
+    rembrandt._options['maxDelta'] =  Number(options['max-delta']);
+    rembrandt._options['maxOffset'] = Number(options['max-offset']);
+
+    window.rembrandt = rembrandt;
+    rembrandt.compare()
+      .then(function (result) {
+        onComplete(result);
+        // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
+      })
+      .catch((e) => {
+        console.error(e)
+      })
+  }
+
   function onComplete(result) {
 
+    console.log("The result", result);
     $('.passed-result').text(result.passed);
     if(result.passed) {
       $('.passed-result').removeClass('wrong');
@@ -132,8 +174,21 @@ $(function(){
     }
     var percentage = (result.threshold * 100).toFixed(2) + '%'
     $('.percentage-result').text(percentage);
+    $('.pixel-result').text(result.differences);
+
+    setInputDefaults();
 
     $('.results').show();
     $('.comparison-image').html(result.compositionImage);
+  }
+
+  function setInputDefaults() {
+    console.log("seeting inputs");
+    for(var key in defaultSettings) {
+      var $input = $('[name="' + key + '"]');
+      if ($input.val() == ''){
+        $input.val(defaultSettings[key]);
+      }
+    }
   }
 });
