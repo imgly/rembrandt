@@ -274,7 +274,7 @@ a {
   display: none;
 }
 .results-table {
-  width: 21rem !important;
+  width: 31rem !important;
   margin: 0 auto;
 }
 .wrong {
@@ -307,6 +307,7 @@ a {
 }
 
 .label-btn {
+  margin-top: 25px;
   background-color: #159957;
   background-image: linear-gradient(120deg, #155799, #159957);
 }

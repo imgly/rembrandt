@@ -49,6 +49,7 @@ $(function(){
   var dropZoneTwo = $('#dropzone2');
   var file1;
   var file2;
+  var totalPixels;
 
   dropZone(dropZoneOne, function(file){
 
@@ -76,9 +77,19 @@ $(function(){
       compositionMaskColor: Rembrandt.Color.RED // Color of unmatched pixels
     })
 
+    // Set total pixel count
+    var width = Math.min(rembrandt._imageA.width, rembrandt._imageB.width);
+    var height = Math.min(rembrandt._imageA.height, rembrandt._imageB.height);
+
+    totalPixels = width * height;
     // Run the comparison
     rembrandt.compare()
       .then(function (result) {
+        // Set total pixel count
+        var width = Math.min(rembrandt._imageA.width, rembrandt._imageB.width);
+        var height = Math.min(rembrandt._imageA.height, rembrandt._imageB.height);
+
+        totalPixels = width * height;
         onComplete(result);
 
         // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
@@ -115,9 +126,15 @@ $(function(){
     })
 
     window.rembrandt = rembrandt;
+
     // Run the comparison
     rembrandt.compare()
       .then(function (result) {
+        // Set total pixel count
+        var width = Math.min(rembrandt._imageA.width, rembrandt._imageB.width);
+        var height = Math.min(rembrandt._imageA.height, rembrandt._imageB.height);
+
+        totalPixels = width * height;
         onComplete(result);
         // Note that `compositionImage` is an Image when Rembrandt.js is run in the browser environment
       })
@@ -172,7 +189,7 @@ $(function(){
       $('.passed-result').removeClass('right');
       $('.passed-result').addClass('wrong');
     }
-    var percentage = (result.threshold * 100).toFixed(2) + '%'
+    var percentage = (result.differences / totalPixels).toFixed(2) + '%'
     $('.percentage-result').text(percentage);
     $('.pixel-result').text(result.differences);
 
