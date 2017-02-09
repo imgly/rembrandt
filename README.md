@@ -18,7 +18,7 @@ HTML5 Canvas2D API as well as the drop-in Node.JS replacement
 `node-canvas`.
 
 We created Rembrandt.JS to have an easy-to-use image comparison
-library for our internal tests for [PhotoEditorSDK](https://www.photoeditorsdk.com).
+library for our internal tests for [PhotoEditorSDK](https://www.photoeditorsdk.com/?utm_source=Github&utm_medium=Side_Projects&utm_content=Rembrandt&utm_term=HTML5).
 Go check it out. It's really awesome. :)
 
 ### Installation
@@ -96,4 +96,4 @@ rembrandt.compare()
 See [LICENSE.md](LICENSE.md)
 
 ### Authors and Contributors
-Copyright (c) 2016 by [PhotoEditorSDK.com](https://www.photoeditorsdk.com)
+Copyright (c) 2016 by [PhotoEditorSDK.com](https://www.photoeditorsdk.com/?utm_source=Github&utm_medium=Side_Projects&utm_content=Rembrandt&utm_term=HTML5)
