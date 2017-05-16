@@ -25,7 +25,6 @@ describe('Rembrandt', () => {
         this.timeout(10000)
         rembrandt.compare()
           .then((result) => {
-            fs.writeFileSync('out.png', result.compositionImage)
             result.passed.should.be.true
             result.differences.should.equal(0)
             done()
