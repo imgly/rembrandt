@@ -23,7 +23,7 @@ describe('Rembrandt', () => {
         rembrandt.compare()
           .then((result) => {
             result.passed.should.be.true
-            result.differences.should.equal(147)
+            result.differences.should.equal(0)
             done()
           })
           .catch((e) => done(e))
