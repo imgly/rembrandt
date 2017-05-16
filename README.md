@@ -1,8 +1,8 @@
 <p align="center">
-  <a href="https://pesdk-slack.herokuapp.com/">
+  <a href="https://travis-ci.org/imgly/rembrandt">
     <img src="https://img.shields.io/travis/imgly/rembrandt.svg" alt="TravisCI Status" />
   </a>
-  <a href="https://travis-ci.org/imgly/rembrandt">
+  <a href="https://pesdk-slack.herokuapp.com/">
     <img src="https://pesdk-slack.herokuapp.com/badge.svg" alt="Slack Status" />
   </a>
 </p>
