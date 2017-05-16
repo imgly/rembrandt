@@ -1,6 +1,4 @@
 /* global Rembrandt, describe, it, beforeEach */
-
-import fs from 'fs'
 import path from 'path'
 
 describe('Rembrandt', () => {
