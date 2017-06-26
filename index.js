@@ -30,7 +30,7 @@ class Rembrandt {
       imageB: null,
       thresholdType: Rembrandt.THRESHOLD_PERCENT,
       maxThreshold: 0.01,
-      maxDelta: 20,
+      maxDelta: 0.02,
       renderComposition: false,
       compositionMaskColor: Color.RED,
       maxOffset: 0
@@ -82,7 +82,7 @@ class Rembrandt {
     checkImageValid('imageA')
     checkImageValid('imageB')
 
-    const { thresholdType, threshold, maxDelta } = this._options
+    const { thresholdType, threshold } = this._options
 
     // Threshold type validation
     const validThresholdTypes = [Rembrandt.THRESHOLD_PERCENT, Rembrandt.THRESHOLD_PIXELS]
@@ -93,13 +93,8 @@ class Rembrandt {
     }
 
     // Threshold validation
-    if (thresholdType === Rembrandt.THRESHOLD_PERCENT && threshold < 0 || threshold > 1) {
+    if (thresholdType === Rembrandt.THRESHOLD_PERCENT && (threshold < 0 || threshold > 1)) {
       throw new Error('`threshold` must be between 0 and 1')
-    }
-
-    // Delta validation
-    if (maxDelta < 0 || maxDelta > 255) {
-      throw new Error('`maxDelta` must be between 0 and 255')
     }
   }
 
