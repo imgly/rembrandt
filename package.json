@@ -1,6 +1,6 @@
 {
   "name": "rembrandt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Client- and server-side image comparison library",
   "main": "build/node.js",
   "repository": {
@@ -14,7 +14,7 @@
   "author": "PhotoEditorSDK.com <contact@photoeditorsdk.com>",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^1.6.7"
+    "canvas": "^2.0.0-alpha.6"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
