@@ -68,8 +68,8 @@ const rembrandt = new Rembrandt({
   // The maximum threshold (0...1 for THRESHOLD_PERCENT, pixel count for THRESHOLD_PIXELS
   maxThreshold: 0.01,
 
-  // Maximum color delta (0...255):
-  maxDelta: 20,
+  // Maximum color delta (0...1):
+  maxDelta: 0.02,
 
   // Maximum surrounding pixel offset
   maxOffset: 0,
