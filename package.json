@@ -24,7 +24,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "json-loader": "^0.5.4",
-    "mocha": "^3.1.2",
+    "mocha": "^10.2.0",
     "preprocess-loader": "^0.2.0",
     "should": "^11.1.1",
     "standard-loader": "^5.0.0",
